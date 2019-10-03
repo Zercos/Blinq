@@ -61,7 +61,9 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,7 +89,7 @@ DATABASES = {
         'USER': env('DB_USER'),
         'PASSWORD': env('USER_PASSWORD'),
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5432''5432',
     }
 }
 
@@ -129,3 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Configure Markdownify
+MARKDOWNIFY_STRIP = False
+MARKDOWNIFY_WHITELIST_TAGS = [
+    'a', 'blockquote', 'code', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'li', 'ol', 'p', 'strong', 'ul',
+]
