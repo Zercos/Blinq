@@ -89,7 +89,7 @@ DATABASES = {
         'USER': env('DB_USER'),
         'PASSWORD': env('USER_PASSWORD'),
         'HOST': 'localhost',
-        'PORT': '5432''5432',
+        'PORT': '5432',
     }
 }
 
@@ -129,10 +129,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
 STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# For user login ang logout
+LOGIN_URL = 'user:login'
+LOGIN_REDIRECT_URL = 'mailinglist:mailinglist_list'
+LOGOUT_REDIRECT_URL = 'user:login'
 
 # Configure Markdownify
 MARKDOWNIFY_STRIP = False

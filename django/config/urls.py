@@ -21,5 +21,5 @@ import user.urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include(user.urls, namespace='user')),
-    path('mailinglist/', include(mailinglist.urls, namespace='mailinglist')),
+    path('', include(mailinglist.urls, namespace='mailinglist')),
 ]
