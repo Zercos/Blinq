@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 coverage = "*"
 factory-boy = "*"
+v = {editable = true,version = "*"}
 
 [packages]
 django = "<=2.1"
@@ -14,6 +15,8 @@ django-environ = "*"
 pillow = "*"
 markdownify = "*"
 django-crispy-forms = "*"
+celery = {extras = ["redis"],version = "*"}
+django-celery-results = "*"
 
 [requires]
 python_version = "3.6"

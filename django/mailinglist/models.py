@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 from django.urls import reverse
 import uuid
+from . import emails
+from . import tasks
 
 
 class MailingList(models.Model):
@@ -27,6 +29,16 @@ class Subscriber(models.Model):
 
     class Meta:
         unique_together = ['email', 'mailing_list']
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        is_new = self._state.adding or force_insert
+        super().save(force_insert=False, force_update=False, using=None, update_fields=None)
+
+        if is_new:
+            self.send_confirmation_email()
+
+    def send_confirmation_email(self):
+        tasks.send_confimation_email_to_subscriber.delay(self.id)
 
 
 class Message(models.Model):
