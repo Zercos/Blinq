@@ -1,0 +1,5 @@
+{{ body }}
+
+---
+If you'd like to unsubscribe, please go to {{ unsubscribe_link }} and click unsubscribe.
+Sent with Mail Ape
