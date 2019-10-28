@@ -17,6 +17,7 @@ markdownify = "*"
 django-crispy-forms = "*"
 celery = {extras = ["redis"],version = "*"}
 django-celery-results = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.6"

@@ -45,7 +45,7 @@ class Subscriber(models.Model):
         is_new = self._state.adding or force_insert
         super().save(force_insert=False, force_update=False, using=None, update_fields=None)
 
-        if is_new:
+        if is_new and not self.confirmed:
             self.send_confirmation_email()
 
     def send_confirmation_email(self):

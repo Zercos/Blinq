@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'user',
     'mailinglist',
     'crispy_forms',
+    'rest_framework',
     'django_celery_results',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -158,3 +159,16 @@ MAILING_LIST_LINK_DOMAIN = env('MAILING_LIST_LINK_DOMAIN')
 # Configure Celery
 CELERY_BROKER_URL = env('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = 'django-db'
+
+# Configure REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated', ),
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.UserRateThrottle',
+        'rest_framework.throttling.AnonRateThrottle',
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '60/minute',
+        'anon': '30/minute',
+    }
+}
