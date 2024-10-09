@@ -9,7 +9,7 @@ factory-boy = "*"
 v = {editable = true,version = "*"}
 
 [packages]
-django = "<3.3"
+django = "<4.3"
 psycopg2 = "<= 2.8"
 django-environ = "*"
 pillow = "*"
